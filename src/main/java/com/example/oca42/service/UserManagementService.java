@@ -25,4 +25,10 @@ public class UserManagementService implements UserService {
                 .map(u -> modelMapper.map(u, UserResponseDto.class))
                 .toList();
     }
+
+    //Optional<T>
+    @Override
+    public UserResponseDto getById(Long id) {
+        return modelMapper.map(userRepository.findById(id).get(), UserResponseDto.class);
+    }
 }
