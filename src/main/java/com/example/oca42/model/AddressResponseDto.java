@@ -5,16 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserResponseDto {
+@NoArgsConstructor
+public class AddressResponseDto {
 
     private Long id;
-    private String username;
-    private Integer age;
-    private List<AddressResponseDto> addresses;
+
+    private String city;
+    private String street;
+    private String apartment;
 }
