@@ -2,9 +2,10 @@ package com.example.oca42.controller;
 
 import com.example.oca42.model.UserCreateRequestDto;
 import com.example.oca42.model.UserResponseDto;
-import com.example.oca42.service.UserService;
+import com.example.oca42.service.UserManagementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserManagementController {
 
-    private final UserService userManagementService;
+    private final UserManagementService userManagementService;
 
     //get all users
 
@@ -31,6 +32,16 @@ public class UserManagementController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id) {
         return ResponseEntity.ok(userManagementService.getById(id));
+    }
+
+    @DeleteMapping("/contact/{id}")
+    public void deleteContact(@PathVariable Long id) {
+        userManagementService.deleteContact(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userManagementService.deleteUser(id);
     }
 
     @PostMapping

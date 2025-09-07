@@ -9,10 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCreateRequestDto {
+public class ContactCreateRequestDto {
 
-    private String username;
-    private Integer age;
-    private String password;
-    private ContactCreateRequestDto contact;
+    private String phoneNumber;
 }
