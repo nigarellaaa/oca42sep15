@@ -35,8 +35,18 @@ public class UserAccount {
     private String password;
     private Integer age;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE) //LAZY
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true) //LAZY
     private List<Address> addresses;
+
+    public void addAddress(Address address) {
+        addresses.add(address);
+        address.setUser(this);
+    }
+
+    public void removeAddress(Address address) {
+        addresses.remove(address);
+        address.setUser(null);
+    }
 
     @OneToOne(cascade = CascadeType.ALL)
     private Contact contact;
