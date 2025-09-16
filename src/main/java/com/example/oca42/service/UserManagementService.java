@@ -88,4 +88,10 @@ public class UserManagementService {
         address.setId(addressId);
         return address;
     }
+
+    public UserAccount getUserByUsername(String username) {
+        return userRepository.getUserAccountByUsername(username).orElseThrow(
+                () -> new NotFoundException("User not found")
+        );
+    }
 }

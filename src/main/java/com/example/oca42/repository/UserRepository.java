@@ -31,4 +31,6 @@ public interface UserRepository extends JpaRepository<UserAccount, Long> {
     Optional<UserAccount> getCustom(@Param("id") Long userId);
 
     boolean existsByUsername(String username);
+
+    Optional<UserAccount> getUserAccountByUsername(String username);
 }
