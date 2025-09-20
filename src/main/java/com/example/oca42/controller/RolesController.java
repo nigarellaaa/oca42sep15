@@ -22,7 +22,7 @@ public class RolesController {
         return roleService.getAll();
     }
 
-    @DeleteMapping
+     @DeleteMapping
     public void deleteById(Long id) {
         //delete
     }
